@@ -23,7 +23,7 @@ public class Director {
 	@NotBlank
 	private String surname;
 	
-	@OneToMany(mappedBy = "director_id")
+	@OneToMany(mappedBy = "director")
 	private List<Movie> movies;
 	
 	public Director() {

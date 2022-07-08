@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+  color: white;
+}
+
+.header img {
+	margin: auto;
+	padding: -20rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #000039;
+  border-bottom: white solid 4px;
+}
+
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: midnightblue;
+}
+
+.flex-items {
+	margin-right: 15px;
+}
+
+.flex-items:first-child {
+	margin-right: 1050px;
+}
+
+.flex-items:last-child {
+	background-color: white;
+	color:black;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px 26px;
+	width: 20%;
+	border-radius: 10px;
+	margin-right: 26px;
+}
+
+.flex-items:last-child:hover {
+	background-color: midnightblue;
+	opacity: 1;
+}
+
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.side {
+  flex: 25%;
+  background-color: #000039;
+  padding: 20px;
+}
+
+.main {
+  flex: 70%;
+  background-color: #000039;
+  padding: 20px;
+}
+
+.img {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+.footer {
+	height: 4rem;
+  	padding: 1px;
+  	text-align: center;
+  	background: black;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row, .navbar {   
+    flex-direction: column;
+  }
+}

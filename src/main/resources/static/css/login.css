@@ -1,0 +1,100 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body {
+	background-color: coral;
+}
+
+#flex-container {
+	display: flex;
+	height: 500px;
+	width: 500px;
+	border: 3px solid black;
+	margin: auto;
+	margin-top: 120px;
+	box-shadow: 15px 15px black;
+}
+
+#form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+	background-color: white;
+}
+
+#form h2 {
+	color: black;
+	font-size: 2rem;
+	margin: 40px;
+	font-weight: bold;
+}
+
+.box {
+	padding: 12px;
+	width: 50%;
+	margin: 15px;
+	border: 2px solid black;
+	outline: none;
+}
+
+#submit {
+	padding: 10px 27px;
+	width: 25%;
+	margin-top: 30px;
+	background-color: black;
+	color: white;
+	outline: none;
+	border-radius: 20px;
+	font-weight: bold;
+	border: 2px solid black;
+}
+
+#submit:hover {
+	cursor: pointer;
+	background-color: firebrick;
+}
+
+#form a {
+	text-decoration: none;
+	color: black;
+	margin-top: 20px;
+}
+
+#form a:hover {
+	color: firebrick;
+}
+
+/* Registration completed alert */
+.alert {
+  padding: 15px;
+  background-color: mediumseagreen;
+  color: white;
+  width: 500px;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: -85px;
+  margin-left: 517px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: -3px;
+  margin-right: 5px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
