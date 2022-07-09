@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="head(title)">
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1.0"/>
+		<title th:text="${title}">Titolo</title>
+		<link th:href="@{/css/userStyle.css}" rel="stylesheet"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0-0/css/bootstrap.min.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	</head>
+
+	<body>
+		<header th:fragment="header">
+			<nav th:fragment="navbar">
+				<ul id="navbar-container">
+					<li class="flex-item"><a th:href="@{/userHome}"><img id="logo" th:src="@{/images/logo2.jpg}" alt="logo"/></a></li>
+					<li class="flex-item"><a th:href="@{/logout}">Logout</a></li>
+				</ul>
+			</nav>
+		</header> 
+		
+	</body>
+</html>

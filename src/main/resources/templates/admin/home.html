@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseAdmin.html::head(title='Admin Home Page')"></head>
+	
+	<body>
+		<header th:replace="fragments/baseAdmin.html::header"></header>
+		
+		<div id="section-container">
+			<h2>Admin Menu</h2>
+			<a class="section-items" th:href="@{/adminBuffet}">Visualizza buffets</a>
+		</div >
+	
+	</body>
+</html>

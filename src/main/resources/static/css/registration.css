@@ -6,7 +6,7 @@
 }
 
 body {
-	background-color: coral;
+	background-color: #000039;
 }
 
 #flex-container {
@@ -25,6 +25,7 @@ body {
 	width: 100%;
 	align-items: center;
 	background-color: white;
+	opacity: 1;
 }
 
 #form h2 {

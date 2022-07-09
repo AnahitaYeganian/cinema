@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>Index</title>
 		<meta charset="UTF-8">
@@ -17,7 +17,7 @@
 			<a class="flex-items" href="#">Link</a>
 			<a class="flex-items" href="#">Link</a>
 			<a class="flex-items" href="#">Link</a>
-			<button class="flex-items" th:href="@{/login}">Login</button>
+			<button class="flex-items" type="button" th:onclick=|window.location.href='/login'|>Login</button>
 		</div>
 		
 		<div class="row">

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1.0"/>
+		<title>Login Form</title>
+		<link th:href="@{/css/login.css}" rel="stylesheet"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	</head>
+	
+	<body>
+		<span th:if="${registrationCompleted}">
+			<div class="alert">
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+				Registration completed
+			</div>
+		</span>
+		
+		<div id="flex-container">
+			<form th:action="@{/login}" method="POST" id="form">
+				<h2>SIGN IN</h2>
+				<input type="text" name="username" class="box" placeholder="Username" required />
+				<input name="password" type="password" class="box" placeholder="Password" required />
+				<button type="submit" id="submit">LOGIN</button>
+				<a th:href="@{/register}">Join us</a>
+			</form>
+		</div>
+	</body>
+</html>
