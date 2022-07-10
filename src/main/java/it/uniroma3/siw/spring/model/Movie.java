@@ -1,6 +1,6 @@
 package it.uniroma3.siw.spring.model;
 
-import java.time.Year;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +21,7 @@ public class Movie {
 	private String name;
 	
 	@NotBlank
-	private Year year;
+	private LocalDate releaseDate;
 	
 	@OneToOne
 	private Hall hall;
@@ -49,12 +49,12 @@ public class Movie {
 		this.name = name;
 	}
 
-	public Year getYear() {
-		return this.year;
+	public LocalDate getReleaseDate() {
+		return this.releaseDate;
 	}
 
-	public void setYear(Year year) {
-		this.year = year;
+	public void setReleaseDate(LocalDate releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
 	public Hall getHall() {
@@ -75,7 +75,7 @@ public class Movie {
 	
 	@Override
 	public int hashCode() {
-		return this.getName().hashCode()+this.getYear().hashCode();
+		return this.getName().hashCode()+this.getReleaseDate().hashCode();
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class Movie {
 			return false;
 		
 		Movie otherMovie = (Movie)obj;
-		return this.getName().equals(otherMovie.getName()) && this.getYear().equals(otherMovie.getYear());
+		return this.getName().equals(otherMovie.getName()) && this.getReleaseDate().equals(otherMovie.getReleaseDate());
 	}
 	
 }

@@ -5,6 +5,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link th:href="@{/css/style.css}" rel="stylesheet"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -14,41 +17,38 @@
 		
 		<div class="navbar">
 			<a class="flex-items" th:href="@{/}">Home</a>
-			<a class="flex-items" href="#">Link</a>
-			<a class="flex-items" href="#">Link</a>
-			<a class="flex-items" href="#">Link</a>
 			<button class="flex-items" type="button" th:onclick=|window.location.href='/login'|>Login</button>
 		</div>
 		
 		<div class="row">
 			<div class="side">
-				<h2>About Me</h2>
-				<h5>Photo of me:</h5>
-				<div class="img" style="height:200px;">Image</div>
-				<p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-				<h3>More Text</h3>
-				<p>Lorem ipsum dolor sit ame.</p>
-				<div class="img" style="height:60px;">Image</div><br>
-				<div class="img" style="height:60px;">Image</div><br>
-				<div class="img" style="height:60px;">Image</div>
+				<div style="margin: 20px 0px;"><a th:href="@{/movieCatalog}">Movies</a></div >
+				<div style="margin: 20px 0px;"><a th:href="@{/halls}">Halls</a></div >
 			</div>
 			<div class="main">
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Dec 7, 2017</h5>
-				<div class="img" style="height:200px;">Image</div>
-				<p>Some text..</p>
-				<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-				<br>
-				<h2>TITLE HEADING</h2>
-				<h5>Title description, Sep 2, 2017</h5>
-				<div class="img" style="height:200px;">Image</div>
-				<p>Some text..</p>
-				<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+				<div id="movies">
+					<div th:each="movie : ${movies}">
+						<div class="card">
+							<img th:src="@{'/images' + '/' + ${movie.id} + '.jpg'}" alt="Avatar" style="width:30%"/>
+							<div class="container">
+    							<h4><b th:text="${movie.name}"></b></h4>
+    							<p th:text="${movie.releaseDate}"></p  >
+    						</div>
+						</div>
+					</div >
+				</div>
+				<div id="halls">
+					<div th:each="hall : ${halls}">
+						<div class="card">
+							<img th:src="@{'/images' + '/' + ${hall.capacity} + '.jpg'}" alt="Avatar" style="width:30%"/>
+							<div class="container">
+    							<h4><b th:text="${hall.name}"></b ></h4>
+    							<p th:text="'Capacity: ' + ${hall.capacity}"></p >
+    						</div>
+						</div>
+					</div >
+				</div>
 			</div>
-		</div>
-		
-		<div class="footer">
-			<h2>Footer</h2>
 		</div>
 	
 	</body>
