@@ -22,5 +22,12 @@ public class MovieCatalogController {
 		model.addAttribute("movies", movies);
 		return "index.html";
     }
+	
+	@GetMapping("/home/movieCatalog")
+    public String getMoviesInCatalogUserHome(Model model) {
+    	List<Movie> movies = this.movieCatalogService.findMoviesInCatalog();
+		model.addAttribute("movies", movies);
+		return "home.html";
+    }
 
 }

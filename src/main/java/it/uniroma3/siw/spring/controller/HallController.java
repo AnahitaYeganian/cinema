@@ -22,5 +22,12 @@ public class HallController {
 		model.addAttribute("halls", halls);
 		return "index.html";
 	}
+	
+	@GetMapping("/home/halls")
+	public String getHallsUserHome(Model model) {
+		List<Hall> halls = this.hallService.findAll();
+		model.addAttribute("halls", halls);
+		return "home.html";
+	}
 
 }

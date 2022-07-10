@@ -3,13 +3,43 @@
 	<head th:replace="fragments/baseUser.html::head(title='User Home Page')"></head>
 	
 	<body>
-		<header th:replace="fragments/baseUser.html::navbar2"></header>
+		<header th:replace="fragments/baseUser.html::navbar"></header>
 		
-		<div id="section-container">
-			<h2>User Menu</h2>
-			<a class="section-items" th:href="@{/buffet}">Visualizza buffets</a>
-			<a class="section-items" th:href="@{'/updateUser' + '/' + ${userId}}">Modifica dati personali</a>
-		</div >
+		<div class="row">
+			<div class="side">
+				<div style="margin: 20px 0px;"><a th:href="@{'/home' + '/movieCatalog'}">Movies</a></div >
+				<div style="margin: 20px 0px;"><a th:href="@{'/home' + '/halls'}">Halls</a></div >
+			</div>
+			<div class="main">
+				<div id="movies">
+					<div th:each="movie : ${movies}">
+						<div class="card">
+							<img th:src="@{'/images' + '/' + ${movie.id} + '.jpg'}" alt="Avatar"/>
+							<div class="container">
+    							<h4><b th:text="'Movie title: ' + ${movie.name}"></b></h4>
+    							<p th:text="'Movie release date: ' + ${movie.releaseDate}"></p  >
+    							<p th:text="'Movie director: ' + ${movie.director.name} + ' ' +${movie.director.surname}"></p  >
+    							<p th:text="'Hall: ' + ${movie.hall.name}"></p  >
+    							<p th:text="'Hall capacity: ' + ${movie.hall.capacity}"></p  >
+    							<button class="reservation-buttons" type="button" th:onclick=|window.location.href='/login'|>Do a reservation</button>
+    							<button class="reservation-buttons" type="button" th:onclick=|window.location.href='/login'|>Cancel reservation</button>
+    						</div>
+						</div>
+					</div >
+				</div>
+				<div id="halls">
+					<div th:each="hall : ${halls}">
+						<div class="card">
+							<img th:src="@{'/images' + '/' + ${hall.capacity} + '.jpg'}" alt="Avatar"/>
+							<div class="container">
+    							<h4><b th:text="${hall.name}"></b ></h4>
+    							<p th:text="'Capacity: ' + ${hall.capacity}"></p >
+    						</div>
+						</div>
+					</div >
+				</div>
+			</div>
+		</div>
 	
 	</body>
 </html>
