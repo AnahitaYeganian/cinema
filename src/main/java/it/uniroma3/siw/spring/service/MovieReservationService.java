@@ -1,5 +1,8 @@
 package it.uniroma3.siw.spring.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,18 @@ public class MovieReservationService {
 		Hall salaPrenotata = reservation.getHall();
 		salaPrenotata.setCapacity(salaPrenotata.getCapacity()-1);
 		this.movieReservationRepository.save(reservation);
+	}
+	
+	public List<MovieReservation> findAllReservationPerUser(Long id) {
+		List<MovieReservation> reservations = new ArrayList<MovieReservation>();
+		for(MovieReservation r : this.movieReservationRepository.findAllReservationPerUser(id))
+			reservations.add(r);
+		return reservations;
+	}
+	
+	@Transactional
+	public void deleteReservationById(Long reservationId) {
+		this.movieReservationRepository.deleteById(reservationId);
 	}
 
 }

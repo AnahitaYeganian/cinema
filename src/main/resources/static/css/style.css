@@ -28,6 +28,7 @@ body {
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
+  font-weight: bold;
 }
 
 .navbar a:hover {

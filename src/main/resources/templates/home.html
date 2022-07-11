@@ -7,8 +7,8 @@
 		
 		<div class="row">
 			<div class="side">
-				<div style="margin: 20px 0px;"><a th:href="@{'/home' + '/movieCatalog'}">Movies</a></div >
-				<div style="margin: 20px 0px;"><a th:href="@{'/home' + '/halls'}">Halls</a></div >
+				<div class="sideLinks" style="margin: 20px 0px;"><a th:href="@{'/home' + '/movieCatalog'}">Movies</a></div >
+				<div class="sideLinks" style="margin: 20px 0px;"><a th:href="@{'/home' + '/halls'}">Halls</a></div >
 			</div>
 			<div class="main">
 				<div id="movies">
@@ -29,7 +29,7 @@
 				<div id="halls">
 					<div th:each="hall : ${halls}">
 						<div class="card">
-							<img th:src="@{'/images' + '/' + ${hall.capacity} + '.jpg'}" alt="Avatar"/>
+							<img th:src="@{'/images' + '/Hall' + ${hall.id} + '.jpg'}" alt="Avatar"/>
 							<div class="container">
     							<h4><b th:text="${hall.name}"></b ></h4>
     							<p th:text="'Capacity: ' + ${hall.capacity}"></p >

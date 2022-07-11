@@ -22,11 +22,29 @@
 				<input type="text" th:field="${reservation.hall}" name="nome" class="box invisible" th:placeholder="${reservation.hall}" required />
 				<input type="text" th:field="${reservation.hall.name}" name="nome" class="box" th:placeholder="${reservation.hall.name}" required />
 				<div th:if="${#fields.hasErrors('reservation.hall.name')}" th:errors="${reservation.hall.name}" th:style="'color:red'"></div>
-		
 				
 				
 				
-				<button type="submit" id="submit">INSERISCI</button>
+				<div class="select-dropdown">
+					<select th:field="${{reservation.startTime}}">
+						<option th:value="'2022-07-11 10:00'" th:text="'2022-07-11 10:00'"></option>
+    					<option th:value="'2022-07-11 12:00'" th:text="'2022-07-11 12:00'"></option>
+    					<option th:value="'2022-07-11 14:00'" th:text="'2022-07-11 14:00'"></option>
+    					<option th:value="'2022-07-11 16:00'" th:text="'2022-07-11 16:00'"></option>
+    					<option th:value="'2022-07-13 10:00'" th:text="'2022-07-13 10:00'"></option>
+    					<option th:value="'2022-07-13 12:00'" th:text="'2022-07-13 12:00'"></option>
+    					<option th:value="'2022-07-13 14:00'" th:text="'2022-07-13 14:00'"></option>
+    					<option th:value="'2022-07-13 16:00'" th:text="'2022-07-13 16:00'"></option>
+    					<option th:value="'2022-07-18 10:00'" th:text="'2022-07-18 10:00'"></option>
+    					<option th:value="'2022-07-18 12:00'" th:text="'2022-07-18 12:00'"></option>
+    					<option th:value="'2022-07-18 14:00'" th:text="'2022-07-18 14:00'"></option>
+    					<option th:value="'2022-07-18 16:00'" th:text="'2022-07-18 16:00'"></option>
+    				</select  >
+    			</div>
+				
+				
+				
+				<button type="submit" id="submit">BOOK</button>
 			</form>
 		</div>
 	

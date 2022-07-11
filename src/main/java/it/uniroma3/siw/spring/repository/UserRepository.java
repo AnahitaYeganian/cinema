@@ -10,7 +10,7 @@ import it.uniroma3.siw.spring.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 	
-	@Query("SELECT r FROM User u JOIN u.reservations r WHERE u.id=:id")
+	@Query("SELECT r FROM User u JOIN u.reservations r WHERE u.id=:id ORDER BY r.startTime")
 	public List<MovieReservation> findAllReservationPerUser(Long id);
 	
 	//@Query("SELECT i FROM Piatto p JOIN p.ingredienti i WHERE p.id=:id")

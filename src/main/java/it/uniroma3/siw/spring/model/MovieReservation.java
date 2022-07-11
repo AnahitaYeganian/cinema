@@ -1,10 +1,14 @@
 package it.uniroma3.siw.spring.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class MovieReservation {
@@ -22,7 +26,8 @@ public class MovieReservation {
 	@ManyToOne
 	private Hall hall;
 	
-	private String startTime;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
+	private LocalDateTime startTime;
 	
 	public MovieReservation() {
 		
@@ -36,11 +41,13 @@ public class MovieReservation {
 		this.id = id;
 	}
 
-	public String getStartTime() {
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
+	public LocalDateTime getStartTime() {
 		return this.startTime;
 	}
-
-	public void setStartTime(String startTime) {
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
+	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
 

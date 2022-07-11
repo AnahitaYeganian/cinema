@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -63,6 +65,26 @@ public class MovieReservationController {
         }
         
         return "reservationDetailsForm.html";
+	}
+	
+	@GetMapping("/home/reservation2")
+	public String getAllReservationPerUser(Model model, HttpSession session) {
+		User currentUser = (User)session.getAttribute("currentUser");
+		List<MovieReservation> reservations = this.movieReservationService.findAllReservationPerUser((Long)currentUser.getId());
+		
+		model.addAttribute("reservations", reservations);
+		return "myReservations.html";
+	}
+	
+	@GetMapping("/home/reservation/cancelReservation/{id}")
+	public String deleteReservationById(@PathVariable("id") Long reservationId, Model model, HttpSession session) {
+		this.movieReservationService.deleteReservationById(reservationId);
+		
+		User currentUser = (User)session.getAttribute("currentUser");
+		List<MovieReservation> reservations = this.movieReservationService.findAllReservationPerUser((Long)currentUser.getId());
+		model.addAttribute("reservations", reservations);
+		
+		return "myReservations.html";
 	}
 
 }
