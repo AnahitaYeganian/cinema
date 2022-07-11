@@ -15,8 +15,8 @@
 		
 		<div class="navbar" th:fragment="navbar">
 			<a class="flex-items" th:href="@{/userHome}"><img id="logo" th:src="@{/images/logo-cinema.jpg}" alt="logo"/></a>
-			<a class="flex-items" id="hoverEffect" href="#">Update personal information</a>
-			<a class="flex-items" id="hoverEffect" href="#">My reservation</a>
+			<a class="flex-items" id="hoverEffect" th:href="@{/}">Update personal information</a>
+			<a class="flex-items" id="hoverEffect" th:href="@{/home/reservation}">My reservation</a>
 			<button class="flex-items" type="button" th:onclick=|window.location.href='/logout'|>Logout</button>
 		</div>
 		

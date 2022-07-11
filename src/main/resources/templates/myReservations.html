@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseUser.html::head(title='My Reservations')"></head>
+	
+	<body>
+		<div th:replace="fragments/baseUser.html::navbar"></div>
+		
+		<div class="row">
+			<div class="main">
+				<div id="movies">
+					<div th:each="reservation : ${reservations}">
+						<div class="card">
+							<div class="container">
+    							<h4><b th:text="'Movie title: ' + ${reservation.movie.name}"></b></h4>
+    							<p th:text="'Movie release date: ' + ${reservation.movie.releaseDate}"></p  >
+    							<p th:text="'Movie director: ' + ${reservation.movie.director.name} + ' ' +${reservation.movie.director.surname}"></p  >
+    							<p th:text="'Hall: ' + ${reservation.movie.hall.name}"></p  >
+    							<div><button id="delete-button" type="button" th:onclick=|window.location.href='/home/cancelReservation'|>Cancel reservation</button></div>
+    						</div>
+						</div>
+					</div >
+				</div>
+				<div id="halls">
+					<div th:each="hall : ${halls}">
+						<div class="card">
+							<img th:src="@{'/images' + '/' + ${hall.capacity} + '.jpg'}" alt="Avatar"/>
+							<div class="container">
+    							<h4><b th:text="${hall.name}"></b ></h4>
+    							<p th:text="'Capacity: ' + ${hall.capacity}"></p >
+    						</div>
+						</div>
+					</div >
+				</div>
+			</div>
+		</div>
+	
+	</body>
+</html>

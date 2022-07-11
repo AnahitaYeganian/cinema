@@ -1,13 +1,10 @@
 package it.uniroma3.siw.spring.model;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 public class MovieReservation {
@@ -15,12 +12,6 @@ public class MovieReservation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@NotBlank
-	private LocalDateTime startTime;
-	
-	@NotBlank
-	private LocalDateTime endTime;
 	
 	@ManyToOne
 	private User user;
@@ -30,6 +21,8 @@ public class MovieReservation {
 	
 	@ManyToOne
 	private Hall hall;
+	
+	private String startTime;
 	
 	public MovieReservation() {
 		
@@ -43,20 +36,12 @@ public class MovieReservation {
 		this.id = id;
 	}
 
-	public LocalDateTime getStartTime() {
+	public String getStartTime() {
 		return this.startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
-	}
-
-	public LocalDateTime getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(LocalDateTime endTime) {
-		this.endTime = endTime;
 	}
 
 	public User getUser() {

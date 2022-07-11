@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1.0"/>
+		<title>Reservation</title>
+		<link th:href="@{/css/selectBox.css}" rel="stylesheet"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0-0/css/bootstrap.min.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	</head>
+
+	<body>
+		
+		<div class="navbar">
+			<a class="flex-items" th:href="@{/userHome}"><img id="logo" th:src="@{/images/logo-cinema.jpg}" alt="logo"/></a>
+			<a class="flex-items" id="hoverEffect" href="#">Update personal information</a>
+			<a class="flex-items" id="hoverEffect" href="#">My reservation</a>
+			<button class="flex-items" type="button" th:onclick=|window.location.href='/logout'|>Logout</button>
+		</div>
+		
+		<div class="row">
+			<div class="main">
+				<div class="card">
+					<form th:action="@{/home/reservation2}" method="POST" id="form" th:object="${reservation}">
+					
+							<div th:text="*{hall.capacity}"></div >
+							<img th:src="@{'/images' + '/' + *{movie.id} + '.jpg'}" alt="Avatar"/>
+							<div class="container">
+    							<h4><b th:field="*{movie.name}" th:text="'Movie title: ' + *{movie.name}"></b></h4>
+    							<p th:field="*{movie.releaseDate}" th:text="'Movie release date: ' + *{movie.releaseDate}"></p  >
+    							<p><span th:field="*{movie.director.name}" th:text="'Movie director: ' + *{movie.director.name} + ' '"></span ><span th:field="*{movie.director.surname}" th:text="*{movie.director.surname}"></span ></p  >
+    							<p th:field="*{hall.name}" th:text="'Hall: ' + *{movie.hall.name}"></p  >
+    							<p th:field="*{hall.capacity}" th:text="'Hall capacity: ' + *{movie.hall.capacity}"></p  >
+  								
+    						</div>
+    						<button type="submit" id="submit">BOOK</button>
+					</form >
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

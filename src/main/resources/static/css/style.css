@@ -55,7 +55,7 @@ body {
 
 .flex-items:last-child:hover {
 	background-color: midnightblue;
-	opacity: 1;
+	opacity: 0.9;
 }
 
 .row {  

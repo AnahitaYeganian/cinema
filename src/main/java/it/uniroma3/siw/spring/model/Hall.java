@@ -18,7 +18,6 @@ public class Hall {
 	@Column(unique=true)
 	private String name;
 	
-	@NotBlank
 	private Integer capacity;
 	
 	public Hall() {

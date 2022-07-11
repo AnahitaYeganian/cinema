@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseUser.html::head(title='Reservation Details')"></head>
+	
+	<body>
+		<div th:replace="fragments/baseUser.html::navbar"></div>
+		
+		<div id="flex-container">
+			<form th:action="@{/home/newReservation}" method="POST" id="form">
+				<h2>RESERVATION DETAILS</h2>
+				<h4>User</h4>
+				<input type="text" th:field="${reservation.user}" name="nome" class="box invisible" th:placeholder="${reservation.user}" required />
+				<input type="text" th:field="${reservation.user.name}" name="nome" class="box" th:placeholder="${reservation.user.name}" required />
+				<div th:if="${#fields.hasErrors('reservation.user.name')}" th:errors="${reservation.user.name}" th:style="'color:red'"></div>
+				<input type="text" th:field="${reservation.user.surname}" name="nome" class="box" th:placeholder="${reservation.user.surname}" required />
+				<div th:if="${#fields.hasErrors('reservation.user.surname')}" th:errors="${reservation.user.surname}" th:style="'color:red'"></div>
+				<h4>Movie</h4>
+				<input type="text" th:field="${reservation.movie}" name="nome" class="box invisible" th:placeholder="${reservation.movie}" required />
+				<input type="text" th:field="${reservation.movie.name}" name="nome" class="box" th:placeholder="${reservation.movie.name}" required />
+				<div th:if="${#fields.hasErrors('reservation.movie.name')}" th:errors="${reservation.movie.name}" th:style="'color:red'"></div>
+				<h4>Hall</h4>
+				<input type="text" th:field="${reservation.hall}" name="nome" class="box invisible" th:placeholder="${reservation.hall}" required />
+				<input type="text" th:field="${reservation.hall.name}" name="nome" class="box" th:placeholder="${reservation.hall.name}" required />
+				<div th:if="${#fields.hasErrors('reservation.hall.name')}" th:errors="${reservation.hall.name}" th:style="'color:red'"></div>
+		
+				
+				
+				
+				<button type="submit" id="submit">INSERISCI</button>
+			</form>
+		</div>
+	
+	</body>
+</html>

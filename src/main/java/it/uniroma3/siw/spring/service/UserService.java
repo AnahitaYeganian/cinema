@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.uniroma3.siw.spring.model.MovieReservation;
 import it.uniroma3.siw.spring.model.User;
 import it.uniroma3.siw.spring.repository.UserRepository;
 
@@ -44,6 +45,13 @@ public class UserService {
 	
 	public User getUserByUsername(String username) {
 		return this.credentialsService.findByUsername(username).get().getUser();
+	}
+	
+	public List<MovieReservation> findAllReservationPerUser(Long id) {
+		List<MovieReservation> reservations = new ArrayList<MovieReservation>();
+		for(MovieReservation r : this.userRepository.findAllReservationPerUser(id))
+			reservations.add(r);
+		return reservations;
 	}
 
 }

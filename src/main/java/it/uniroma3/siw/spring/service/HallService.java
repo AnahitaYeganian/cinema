@@ -21,5 +21,9 @@ public class HallService {
 			halls.add(h);
 		return halls;
 	}
+	
+	public Hall getHall(Long id) {
+		return this.hallRepository.findById(id).get();
+	}
 
 }
