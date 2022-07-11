@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseAdmin.html::head(title='Movie Details')"></head>
+	
+	<body>
+		<div th:replace="fragments/baseAdmin.html::navbar"></div>
+		
+		<div id="flex-container">
+			<form th:action="@{/admin/home/newMovie}" method="POST" id="form">
+				<h2>MOVIE DETAILS</h2>
+				<h4>Name</h4>
+				<input type="text" th:field="${newMovie.name}" name="nome" class="box" placeholder="Enter movie name" required />
+				<div th:if="${#fields.hasErrors('newMovie.name')}" th:errors="${newMovie.name}" th:style="'color:red'"></div>
+				<h4>Release date</h4>
+				<input type="text" th:field="${{newMovie.releaseDate}}" name="nome" class="box" placeholder="Enter release date (yyyy-MM-dd)" required />
+				<div th:if="${#fields.hasErrors('newMovie.releaseDate')}" th:errors="${newMovie.releaseDate}" th:style="'color:red'"></div>
+				
+				<h4>Director</h4>
+				<input type="text" th:field="${newMovie.director.name}" name="nome" class="box" placeholder="Enter director name" required />
+				<div th:if="${#fields.hasErrors('newMovie.director.name')}" th:errors="${newMovie.director.name}" th:style="'color:red'"></div>
+				<input type="text" th:field="${newMovie.director.surname}" name="nome" class="box" placeholder="Enter director surname" required />
+				<div th:if="${#fields.hasErrors('newMovie.director.surname')}" th:errors="${newMovie.director.surname}" th:style="'color:red'"></div>
+				
+				
+				<div class="select-dropdown">
+					<select th:field="${newMovie.hall.name}">
+						<option th:value="'Hall 1'" th:text="'Hall 1'"></option>
+						<option th:value="'Hall 2'" th:text="'Hall 2'"></option>
+						<option th:value="'Hall 3'" th:text="'Hall 3'"></option>
+						<option th:value="'Hall 4'" th:text="'Hall 4'"></option>
+    				</select  >
+    			</div>
+				
+				<button type="submit" id="submit">INSERT</button>
+			</form>
+		</div>
+	
+	</body>
+</html>

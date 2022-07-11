@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseAdmin.html::head(title='Operations Menu')"></head>
+	
+	<body>
+		<div th:replace="fragments/baseAdmin.html::navbar"></div>
+		
+		<div id="section-container">
+			<h2>Admin Menu</h2>
+			<a class="section-items" th:href="@{/admin/home/movie}">Enter new movie in the catalog</a>
+			<a class="section-items" th:href="@{/}">Delete existing movie in the catalog</a>
+			<a class="section-items" th:href="@{/}">Update movie's information</a>
+		</div >
+	
+	</body>
+</html>

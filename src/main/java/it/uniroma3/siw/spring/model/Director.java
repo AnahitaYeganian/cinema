@@ -1,13 +1,9 @@
 package it.uniroma3.siw.spring.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -23,11 +19,7 @@ public class Director {
 	@NotBlank
 	private String surname;
 	
-	@OneToMany(mappedBy = "director")
-	private List<Movie> movies;
-	
 	public Director() {
-		this.movies = new ArrayList<Movie>();
 	}
 
 	public Long getId() {
@@ -54,13 +46,13 @@ public class Director {
 		this.surname = surname;
 	}
 
-	public List<Movie> getMovies() {
-		return this.movies;
-	}
-
-	public void setMovies(List<Movie> movies) {
-		this.movies = movies;
-	}
+//	public List<Movie> getMovies() {
+//		return this.movies;
+//	}
+//
+//	public void setMovies(List<Movie> movies) {
+//		this.movies = movies;
+//	}
 	
 	@Override
 	public int hashCode() {

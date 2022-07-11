@@ -2,6 +2,7 @@ package it.uniroma3.siw.spring.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Movie {
@@ -20,14 +23,17 @@ public class Movie {
 	@NotBlank
 	private String name;
 	
-	@NotBlank
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate releaseDate;
 	
 	@OneToOne
 	private Hall hall;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Director director;
+	
+	@ManyToOne
+	private MovieCatalog catalog;
 	
 	public Movie() {
 		
@@ -48,11 +54,13 @@ public class Movie {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public LocalDate getReleaseDate() {
 		return this.releaseDate;
 	}
-
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public void setReleaseDate(LocalDate releaseDate) {
 		this.releaseDate = releaseDate;
 	}
@@ -73,6 +81,14 @@ public class Movie {
 		this.director = director;
 	}
 	
+	public MovieCatalog getCatalog() {
+		return this.catalog;
+	}
+
+	public void setCatalog(MovieCatalog catalog) {
+		this.catalog = catalog;
+	}
+
 	@Override
 	public int hashCode() {
 		return this.getName().hashCode()+this.getReleaseDate().hashCode();

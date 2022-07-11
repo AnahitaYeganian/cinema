@@ -6,7 +6,7 @@
 		<div th:replace="fragments/baseUser.html::navbar"></div>
 		
 		<div id="flex-container">
-			<form th:action="@{/home/newReservation}" method="POST" id="form">
+			<form th:action="@{/admin/home/newMovie}" method="POST" id="form">
 				<h2>RESERVATION DETAILS</h2>
 				<h4>User</h4>
 				<input type="text" th:field="${reservation.user}" name="nome" class="box invisible" th:placeholder="${reservation.user}" required />

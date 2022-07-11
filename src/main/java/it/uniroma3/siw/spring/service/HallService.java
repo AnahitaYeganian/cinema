@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.spring.model.Hall;
+import it.uniroma3.siw.spring.model.MovieCatalog;
 import it.uniroma3.siw.spring.repository.HallRepository;
 
 @Service
@@ -24,6 +25,10 @@ public class HallService {
 	
 	public Hall getHall(Long id) {
 		return this.hallRepository.findById(id).get();
+	}
+	
+	public Hall findByName(String name) {
+		return this.hallRepository.findByName(name).get();
 	}
 
 }

@@ -5,10 +5,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
@@ -23,8 +23,7 @@ public class MovieCatalog {
 	@Column(unique = true)
 	private String name;
 	
-	@OneToMany//, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "catalog_id")
+	@OneToMany(mappedBy = "catalog", fetch = FetchType.EAGER)
 	private List<Movie> movies;
 	
 	public MovieCatalog() {

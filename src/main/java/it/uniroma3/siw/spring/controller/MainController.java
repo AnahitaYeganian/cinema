@@ -21,4 +21,9 @@ public class MainController {
 		return "admin/home.html";
 	}
 	
+	@GetMapping({"/admin/home/operation"})
+	public String getAdminOperationsMenu() {
+		return "admin/menu.html";
+	}
+	
 }
