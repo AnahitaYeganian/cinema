@@ -67,8 +67,7 @@ public class UserController {
         	
         	//currentCredentials.setUser(currentUser); non serve
             this.userService.getCredentialsService().saveCredentials(currentCredentials);
-            //model.addAttribute("modificaAvvenuta", new String("L'utente inserito è stato registrato"));
-            return "home.html";
+            model.addAttribute("updateDone", new String("User informations have been updated"));
         }
         
         return "userDetailsForm.html";
