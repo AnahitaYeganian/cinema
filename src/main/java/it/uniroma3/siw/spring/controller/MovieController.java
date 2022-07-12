@@ -1,14 +1,18 @@
 package it.uniroma3.siw.spring.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import it.uniroma3.siw.spring.controller.validator.MovieValidator;
 import it.uniroma3.siw.spring.model.Movie;
 import it.uniroma3.siw.spring.service.HallService;
 import it.uniroma3.siw.spring.service.MovieCatalogService;
@@ -19,6 +23,9 @@ public class MovieController {
 	
 	@Autowired
 	private MovieService movieService;
+	
+	@Autowired
+	private MovieValidator movieValidator;
 	
 	@Autowired
 	private MovieCatalogService movieCatalogService;
@@ -48,4 +55,34 @@ public class MovieController {
 		return "admin/home.html";
 	}
 	
+	@GetMapping("/admin/home/updateMovie/{id}")
+	public String updateMovie(@PathVariable("id") Long id, Model model, HttpSession session) {
+    	Movie movie = this.movieService.getMovie(id);
+    	
+		model.addAttribute("movie", movie);
+		session.setAttribute("currentMovie", movie);
+		return "admin/updateMovieDetailsForm.html";
+	}
+	
+	@PostMapping("/admin/home/updateMovie")
+    public String updateBuffet(@Valid @ModelAttribute("movie") Movie movie, BindingResult movieBindingResult, Model model, HttpSession session) {
+		
+		this.movieValidator.validate(movie, movieBindingResult);
+        
+		if(!movieBindingResult.hasErrors()) {
+			Movie currentMovie = (Movie)session.getAttribute("currentMovie");
+			
+			currentMovie.setName(movie.getName());
+        	currentMovie.setReleaseDate(movie.getReleaseDate());
+        	currentMovie.setDirector(movie.getDirector());
+        	currentMovie.setHall(this.hallService.findByName(movie.getHall().getName()));
+        	
+        	this.movieService.saveMovie(currentMovie);
+            model.addAttribute("movieUpdateDone", new String("Movie informations have been updated"));
+        	model.addAttribute("movie", currentMovie);
+            return "admin/movie.html";
+        }
+        
+        return "admin/updateMovieDetailsForm.html";
+    }
 }

@@ -18,9 +18,6 @@ public class MovieReservationService {
 	@Autowired
 	private MovieReservationRepository movieReservationRepository;
 	
-	@Autowired
-	private HallService hallService;
-	
 	@Transactional
 	public void saveReservation(MovieReservation reservation) {
 		Hall salaPrenotata = reservation.getHall();

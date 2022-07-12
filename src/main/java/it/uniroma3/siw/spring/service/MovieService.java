@@ -19,11 +19,8 @@ public class MovieService {
 	}
 	
 	@Transactional
-	public void saveMovie(Movie movie) {
-//		Hall salaPrenotata = reservation.getHall();
-//		salaPrenotata.setCapacity(salaPrenotata.getCapacity()-1);
-		
-		this.movieRepository.save(movie);
+	public void saveMovie(Movie movie) {		
+    	this.movieRepository.save(movie);
 	}
 
 }

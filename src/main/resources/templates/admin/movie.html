@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/baseAdmin.html::head(title='Movie Page')"></head>
+	
+	<body>
+		<div th:replace="fragments/baseAdmin.html::navbar"></div>
+		
+		<span th:if="${movieUpdateDone}">
+			<div class="alert2">
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+				Movie informations have been updated
+			</div>
+		</span>
+		
+		<div id="movies">
+			<div class="card">
+				<img th:src="@{'/images' + '/' + ${movie.id} + '.jpg'}" alt="Avatar"/>
+				<div class="container">
+    				<h4><b th:text="'Movie title: ' + ${movie.name}"></b></h4>
+    				<p th:text="'Movie release date: ' + ${movie.releaseDate}"></p  >
+    				<p th:text="'Movie director: ' + ${movie.director.name} + ' ' +${movie.director.surname}"></p  >
+    				<p th:text="'Hall: ' + ${movie.hall.name}"></p  >
+    				<p th:text="'Hall capacity: ' + ${movie.hall.capacity}"></p  >
+    				<div><button id="reservation-button" type="button" th:onclick=|window.location.href='/home/reservation/${movie.id}'|>Do a reservation</button></div>
+    				<div><button id="reservation-button" type="button" th:onclick=|window.location.href='/admin/home/updateMovie/${movie.id}'|>Update informations</button></div>
+    			</div>
+			</div>
+		</div>
+	
+	</body>
+</html>

@@ -6,11 +6,11 @@
 		<div th:replace="fragments/baseUser.html::navbar"></div>
 		
 		<span th:if="${updateDone}">
-					<div class="alert">
-						<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-						User informations have been updated
-					</div>
-				</span>
+			<div class="alert">
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+				User informations have been updated
+			</div>
+		</span>
 		
 		<div id="flex-container">
 			<form th:action="@{/updateUser}" method="POST" id="form">
