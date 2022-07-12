@@ -6,7 +6,7 @@
 		<div th:replace="fragments/baseAdmin.html::navbar"></div>
 		
 		<div id="flex-container">
-			<form th:action="@{/admin/home/newMovie}" method="POST" id="form">
+			<form th:action="@{/admin/home/newMovie}" method="POST" id="form" enctype="multipart/form-data">
 				<h2>MOVIE DETAILS</h2>
 				<h4>Name</h4>
 				<input type="text" th:field="${newMovie.name}" name="nome" class="box" placeholder="Enter movie name" required />
@@ -31,9 +31,9 @@
     				</select  >
     			</div>
 				
-				<button type="submit" id="submit">INSERT</button>
+				<button type="submit" class="greencenteredbutton">INSERT</button>
 			</form>
 		</div>
-	
+		
 	</body>
 </html>

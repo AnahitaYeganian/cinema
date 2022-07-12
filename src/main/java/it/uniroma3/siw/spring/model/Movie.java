@@ -88,7 +88,7 @@ public class Movie {
 	public void setCatalog(MovieCatalog catalog) {
 		this.catalog = catalog;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return this.getName().hashCode()+this.getReleaseDate().hashCode();

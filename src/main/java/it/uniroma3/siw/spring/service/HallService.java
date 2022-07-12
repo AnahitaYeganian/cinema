@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.spring.model.Hall;
-import it.uniroma3.siw.spring.model.MovieCatalog;
 import it.uniroma3.siw.spring.repository.HallRepository;
 
 @Service

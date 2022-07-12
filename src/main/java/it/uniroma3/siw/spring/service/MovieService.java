@@ -19,8 +19,8 @@ public class MovieService {
 	}
 	
 	@Transactional
-	public void saveMovie(Movie movie) {		
+	public void saveMovie(Movie movie) {
     	this.movieRepository.save(movie);
 	}
-
+	
 }

@@ -65,7 +65,7 @@ public class MovieController {
 	}
 	
 	@PostMapping("/admin/home/updateMovie")
-    public String updateBuffet(@Valid @ModelAttribute("movie") Movie movie, BindingResult movieBindingResult, Model model, HttpSession session) {
+    public String updateMovie(@Valid @ModelAttribute("movie") Movie movie, BindingResult movieBindingResult, Model model, HttpSession session) {
 		
 		this.movieValidator.validate(movie, movieBindingResult);
         
@@ -78,8 +78,10 @@ public class MovieController {
         	currentMovie.setHall(this.hallService.findByName(movie.getHall().getName()));
         	
         	this.movieService.saveMovie(currentMovie);
+        	
             model.addAttribute("movieUpdateDone", new String("Movie informations have been updated"));
         	model.addAttribute("movie", currentMovie);
+        	
             return "admin/movie.html";
         }
         

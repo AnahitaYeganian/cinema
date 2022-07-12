@@ -95,6 +95,7 @@ body {
 	border-radius: 10px;
 	border: none;
 	margin: 5px 0px;
+	text-align: center;
 }
 
 #delete-button {
@@ -108,6 +109,7 @@ body {
 	border-radius: 10px;
 	border: none;
 	margin: 5px 0px;
+	text-align: center;
 }
 
 button:hover {
@@ -118,7 +120,7 @@ button:hover {
 
 #flex-container {
 	display: flex;
-	height: 550px;
+	height: 610px;
 	width: 500px;
 	border: 3px solid black;
 	margin: auto;
@@ -436,4 +438,51 @@ button:hover {
   margin-top: 60px;
   margin-bottom: -40px;
   margin-left: 510px;
+}
+
+/* Image input */
+label.label input[type="file"] {
+        position: absolute;
+        top: -1000px;
+}
+
+.label {
+	cursor: pointer;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	padding: 5px 15px;
+	margin: 5px;
+	background: #dddddd;
+	display: inline-block;
+	margin-top: 7px;
+}
+
+.label:hover {
+	background: #00a550;
+}
+
+.label:active {
+	background: #9fa1a0;
+}
+
+.label:invalid + span {
+	color: #000000;
+}
+
+.label:valid + span {
+	color: #ffffff;
+}
+
+.greencenteredbutton {
+	background-color: #00a550;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 0px 0px;
+	width: 100px;
+	height: 50px;
+	border-radius: 10px;
+	border: none;
+	margin: 5px 0px;
+	text-align: center;
 }
