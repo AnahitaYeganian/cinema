@@ -15,7 +15,6 @@
     					<p th:text="'Movie director: ' + ${movie.director.name} + ' ' +${movie.director.surname}"></p  >
     					<p th:text="'Hall: ' + ${movie.hall.name}"></p  >
     					<p th:text="'Hall capacity: ' + ${movie.hall.capacity}"></p  >
-    					<div><button id="reservation-button" type="button" th:onclick=|window.location.href='/home/reservation/${movie.id}'|>Do a reservation</button></div>
     					<div><button id="reservation-button" type="button" th:onclick=|window.location.href='/admin/home/updateMovie/${movie.id}'|>Update informations</button></div>
     				</div>
 				</div>

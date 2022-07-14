@@ -16,8 +16,8 @@
 			<form th:action="@{/updateUser}" method="POST" id="form">
 				<h2>USER DETAILS</h2>
 				<h4>Name</h4>
-				<input type="text" th:field="${user.name}" name="nome" class="box" th:placeholder="${user.name}" required />
-				<div th:if="${#fields.hasErrors('user.name')}" th:errors="${user.name}" th:style="'color:red'"></div>
+				<input type="text" th:field="${user.name}" name="nome" class="box" th:placeholder="${user.name}" />
+				<div th:if="${#fields.hasErrors('nome')}" th:errors="${required.user.nome}" th:style="'color:red'"></div>
 				<h4>Surname</h4>
 				<input type="text" th:field="${user.surname}" name="cognome" class="box" th:placeholder="${user.surname}" required />
 				<div th:if="${#fields.hasErrors('user.surname')}" th:errors="${user.surname}" th:style="'color:red'"></div>

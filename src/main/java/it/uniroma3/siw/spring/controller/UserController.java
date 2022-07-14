@@ -43,10 +43,15 @@ public class UserController {
 	}
 	
 	@GetMapping("/updateUser/{id}")
-	public String updateUser(@PathVariable("id") Long userId, Model model) {
-		model.addAttribute("user", this.userService.getUser(userId));
-		model.addAttribute("credentials", this.userService.getCredentialsService().findCredentialsByUser_Id(userId));
-		return "userDetailsForm.html";
+	public String updateUser(@PathVariable("id") Long userId, Model model, HttpSession session) {
+		if(((User)session.getAttribute("currentUser")).getId() == userId) {
+			model.addAttribute("user", this.userService.getUser(userId));
+			model.addAttribute("credentials", this.userService.getCredentialsService().findCredentialsByUser_Id(userId));
+			return "userDetailsForm.html";
+		}
+		else {
+			return "home.html";
+		}
 	}
 	
 	@PostMapping("/updateUser")

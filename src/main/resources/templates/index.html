@@ -40,7 +40,7 @@
 				<div id="halls">
 					<div th:each="hall : ${halls}">
 						<div class="card">
-							<img th:src="@{'/images' + '/' + ${hall.capacity} + '.jpg'}" alt="Avatar" style="width:30%"/>
+							<img th:src="@{'/images' + '/Hall' + ${hall.id} + '.jpg'}" alt="Avatar" style="width:30%"/>
 							<div class="container">
     							<h4><b th:text="${hall.name}"></b ></h4>
     							<p th:text="'Capacity: ' + ${hall.capacity}"></p >
